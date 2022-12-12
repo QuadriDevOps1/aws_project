@@ -3,6 +3,7 @@
 - GIT Download - https://git-scm.com/downloads
 - Visual studio code download - https://code.visualstudio.com/download
 - Choco install using powershell admin - https://chocolatey.org/install#individual
+- AWS Cli install - choco install awscli
 - JDK 1.8 or later - choco install jdk8
 - Maven 3 or later - choco install maven
 - MySQL 5.6 or later 
