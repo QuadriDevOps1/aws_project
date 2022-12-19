@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    tools {
+        maven "MAVEN3"
+        jdk "OracleJDK8"
+    }
+
+    stages {
+        stage('Fetch code from VCS') {
+            steps {
+                git branch: 'ss-rem', url: 'https://github.com/QuadriDevOps1/sscademy_devops.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn install -DskipTests'
+            }
+            post {
+                success {
+                    echo 'Now archiving the artifact...'
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }
+            }
+        }
+
+        stage('UNIT TEST') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+    }
+}
