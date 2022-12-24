@@ -61,5 +61,68 @@ pipeline {
                 }
             }
         }
+
+        stage('UploadArtifact') {
+            steps {
+                nexusArtifactUploader(
+                nexusVersion: 'nexus3',
+                protocol: 'http',
+                nexusUrl: '3.219.35.209:8081',
+                groupId: 'DEV',
+                version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+                repository: 'sscademy-repo',
+                credentialsId: 'nexuslogin',
+                artifacts: [
+                [artifactId: sscademy,
+                classifier: '',
+                file: '/target/sscademy-v2.war',
+                type: 'war']
+            ]
+        )
+
+            }
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        stage('UploadArtifact') {
+            steps {
+                nexusArtifactUploader(
+                nexusVersion: 'nexus3',
+                protocol: 'http',
+                nexusUrl: 'public_ip_of_nexus:8081',
+                groupId: 'DEV',
+                version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+                repository: 'sscademy-repo',
+                credentialsId: 'nexuslogin',
+                artifacts: [
+                    [artifactId: sscademyapp,
+                    classifier: '',
+                    file: 'target/sscademy-v2.war',
+                    type: 'war']
+                ]
+             )
+
+            }
+        }
      }
 }
