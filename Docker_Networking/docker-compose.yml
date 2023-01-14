@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  mydb:
+   image: postgres
+   environment:
+    POSTGRES_PASSWORD: admin123
+    POSTGRES_USER: admin
+    POSTGRES_DB: mydb
+  adminer:
+    image: adminer
+    ports:
+      - 8888:8080
+networks:
+  default:
+    external:
+      name: network2
