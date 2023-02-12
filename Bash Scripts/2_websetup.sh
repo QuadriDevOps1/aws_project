@@ -4,12 +4,12 @@
 echo "#####################################"
 echo "Installing packages"
 echo "#####################################"
-sudo apt install wget unzip apache2 -y > /dev/null
+sudo apt install wget unzipapache2 -y > /dev/null
 echo
 
 # Start and Enable Service
 echo "#####################################"
-echo "Start and Enable HTTPD Service"
+echo "Start and Enable apche2 Service"
 echo "#####################################"
 sudo systemctl start apache2
 sudo systemctl enable apache2
@@ -30,7 +30,8 @@ echo
 
 # Bounce Service
 echo "######################################"
-echo "Restarting the HTTPD Service"
+echo "Restarting the apache2 Service"
+echo "######################################"
 sudo systemctl restart apache2
 echo
 
