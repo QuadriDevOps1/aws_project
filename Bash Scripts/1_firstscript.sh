@@ -15,7 +15,7 @@ echo "Memory utilization"
 free -m 
 echo
 # Checking system Disk utilization
-
+info
 echo "#############################"
 echo "Disk utilization"
 df -h
