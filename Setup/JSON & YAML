@@ -1,0 +1,23 @@
+////////////JSON FILE////////////////////////
+
+{ 
+    "name":"John Smith",
+    "age":26,
+    "hobbies":[
+        "sports",
+        "cooking",
+        "reading"
+    ],
+    "manager":{
+        "name":"Jon Doe",
+        "age":45,
+        "hobbies":[
+            "fishing"
+        ],
+        "manager":null
+    }
+}
+
+
+///////////YAML//////////////////
+
