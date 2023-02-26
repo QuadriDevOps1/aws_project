@@ -1,0 +1,19 @@
+---
+- name: Setup DBServer
+  hosts: dbservergrp
+  become: yes
+  tasks:
+    - name: Install MYSQL server
+      yum: 
+        name: mariadb-server
+        state: present
+    - name: Start & Enable mariadb service
+      service:
+        name: mariadb
+        state: started
+        enabled: yes
+    - name: Create a database with name 'accounts'
+      mysql_db:
+        name: accounts
+        state: present
+        
