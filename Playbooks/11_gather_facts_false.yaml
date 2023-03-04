@@ -1,0 +1,22 @@
+- name: Understanding precendence of variables
+  hosts: all
+  become: yes
+  gather_facts: False
+  vars:
+    USERNM: playuser
+    COMMNT: variable from playbook
+  tasks:
+    - name: create a user 
+      user:
+        name: "{{USERNM}}"
+        comment: "{{COMMNT}}"
+      register: USROUT
+    
+    - debug:
+        var: USROUT
+
+    - debug:
+        var: USROUT.name
+    
+    - debug:
+        var: USROUT.comment 
