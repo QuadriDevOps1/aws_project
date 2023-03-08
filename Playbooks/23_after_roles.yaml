@@ -1,0 +1,10 @@
+---
+
+- name: Server configuration
+  hosts: all
+  roles:
+    - server-conf
+  
+  
+
+  
