@@ -1,0 +1,8 @@
+kops create cluster --name=k8s.sscademy.in \ 
+--state=s3://sscademy-kops-state --zones=us-east-1a,us-east-1b \ 
+--node-count=2 --node-size=t3.small --master-size=t3.medium --dns-zone=k8s.sscademy.in \ 
+--node-volume-size=8 --master-volume-size=8
+
+kops update cluster --name k8s.sscademy.in --state=s3://sscademy-kops-state --yes --admin
+
+kops delete cluster --name k8s.sscademy.in --state=s3://sscademy-kops-state --yes --admin
