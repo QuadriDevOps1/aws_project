@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: weapp-pod
+  labels:
+    app: front-end
+    project: maxim
+spec:
+  containers: 
+  - name: httpd-container
+    image: httpd
+    ports:
+    - name: httpd-port
+      containerPort: 80
