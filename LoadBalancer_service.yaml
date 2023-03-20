@@ -1,0 +1,29 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: voting-pod
+  labels:
+    app: votingapp
+spec:
+  containers:
+  - name: voting-container
+    image: dockersamples/examplevotingapp_worker
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: voting-service
+spec:
+  ports:
+  - port: 80 #expose within the cluster
+    targetPort: 80 #container-port
+    protocol: TCP
+  selector:
+    app: votingapp
+  type: LoadBalancer
+
+...
